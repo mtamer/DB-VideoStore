@@ -1,0 +1,36 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row-fluid">
+<h1>genre: {{genre}}</h1>
+<hr>
+
+<div class="span6 offset2">
+<table class="table table-striped">
+	<thead>
+		<tr> 
+			<th>title</th>
+			<th>last purchased</th>
+			<th>last downloaded</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for v in video %}
+  		<tr> 
+  			<td><a href="/video/id/{{v.videoid}}">{{v.videoname}}</a></td>
+  			<td>{{v.purchase}}</td>
+  			<td>{{v.download}}</td>
+  		</tr>
+		{% else %} <b>no videos</b>  		
+  		{% endfor %}
+  	</tbody>
+</table>
+</div>
+</div>
+
+{% endblock %}
+
+
+
+

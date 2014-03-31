@@ -1,0 +1,38 @@
+so work on models.py and create all the data models
+use migrate to fix and upgrade database
+
+
+many to many relationships represented by auxiliary table called an association table
+
+adding a search feature?
+
+probably end up using bootstrap for frontend
+
+things that needs its own pages:
+members
+video
+list of videos page
+
+d. by genre: names, emails of members
+e. total number  of videos by director
+f. by genre: names, prices of most returned
+g. names, emails by total purchase
+h. videos best sellers, most downloaded
+i. videos never bought, but downloaded
+j. best seller videos, actors in
+k. videos with most nominations, find director
+l. videos with most nominations, no oscar
+m. videos with most awards
+
+videos -> best sellers
+videos -> most nominated
+videos -> most downloaded
+
+
+postgres://qeimssozctlxfu:cH957J37Hgz3U_mdAqWQQ_NWXc@ec2-54-243-224-187.compute-1.amazonaws.com:5432/dfv4v57tbn50na
+
+videostar 
+
+shipping address, addresses can be added
+actor, actors can be added an deleted
+

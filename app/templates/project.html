@@ -1,0 +1,353 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+<h1 >run query run</h1>
+<hr>
+
+<div class="row">
+	  <div class="btn-group">
+	  	<a class="btn" href="/project/runqueryrun/a">a</a>
+	  	<a class="btn" href="/project/runqueryrun/b">b</a>
+	  	<a class="btn" href="/project/runqueryrun/c">c</a>
+	  	<a class="btn" href="/project/runqueryrun/d">d</a>
+	  	<a class="btn" href="/project/runqueryrun/e">e</a>
+	  	<a class="btn" href="/project/runqueryrun/f">f</a>
+	  	<a class="btn" href="/project/runqueryrun/g">g</a>
+	  	<a class="btn" href="/project/runqueryrun/h">h</a>
+	  	<a class="btn" href="/project/runqueryrun/i">i</a>
+	  	<a class="btn" href="/project/runqueryrun/j">j</a>
+	  	<a class="btn" href="/project/runqueryrun/k">k</a>
+	  	<a class="btn" href="/project/runqueryrun/l">l</a>
+	  	<a class="btn" href="/project/runqueryrun/m">m</a>
+	</div>
+</div>
+
+<br>
+
+{% if querynumber in queries %}
+
+<div class="row">
+	<pre class="prettyprint"><code class="language-sql">{{query}}</code></pre>
+</div>
+
+	{% if querynumber == 'a' %}
+		<div class="row">
+		<table class="table table-striped">
+			<thead>
+				<tr> 
+					<th>title</th>
+					<th>genre</th>
+					<th>rating</th>
+					<th>year</th>
+					<th>price</th>
+					<th>duration</th>
+					<th>stock</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for r in result %}
+				<tr> 
+		  			<td>{{r.videoname}}</td>
+		  			<td>{{r.genre}}</td>
+		  			<td>{{r.rating}}</td>
+		  			<td>{{r.videoyear}}</td>
+		  			<td>{{r.salesprice}}</td>
+		  			<td>{{r.duration}}</td>
+		  			<td>{{r.instock}}</td>
+		  		</tr>
+		  		{% endfor %}
+		  	</tbody>
+		</table>
+		</div>
+	{% endif %}
+
+
+	{% if querynumber == 'b' %}
+		<div class="row">
+		<table class="table table-striped">
+			<thead>
+				<tr> 
+					<th>title</th>
+					<th>last purchased</th>
+					<th>last downloaded</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for r in result %}
+				<tr> 
+		  			<td>{{r.videoname}}</td>
+		  			<td>{{r.dateordered}}</td>
+		  			<td>{{r.downloaddate}}</td>
+		  		</tr>
+		  		{% endfor %}
+		  	</tbody>
+		</table>
+		</div>
+	{% endif %}
+
+
+	{% if querynumber == 'c' %}
+		<div class="row">
+		<table class="table table-striped">
+			<thead>
+				<tr> 
+					<th>member number</th>
+					<th>card number</th>
+					<th>card type</th>
+					<th>address 1</th>
+					<th>address 2</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for r in result %}
+				<tr> 
+		  			<td>{{r.membernumber}}</td>
+		  			<td>{{r.cardnumber}}</td>
+		  			<td>{{r.credit_cardtype}}</td>
+		  			<td>{{r.address1}}</td>
+		  			<td>{{r.address2}}</td>
+		  		</tr>
+		  		{% endfor %}
+		  	</tbody>
+		</table>
+		</div>
+	{% endif %}
+
+
+	{% if querynumber == 'd' %}
+		<div class="row">
+		<table class="table table-striped">
+			<thead>
+				<tr> 
+					<th>first name</th>
+					<th>last name</th>
+					<th>email</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for r in result %}
+				<tr> 
+		  			<td>{{r.firstname}}</td>
+		  			<td>{{r.lastname}}</td>
+		  			<td>{{r.email}}</td>
+		  		</tr>
+		  		{% endfor %}
+		  	</tbody>
+		</table>
+		</div>
+	{% endif %}
+
+
+	{% if querynumber == 'e' %}
+		<div class="row">
+		<table class="table table-striped">
+			<thead>
+				<tr> 
+					<th>first name</th>
+					<th>last name</th>
+					<th>videos</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for r in result %}
+				<tr> 
+		  			<td>{{r.firstname}}</td>
+		  			<td>{{r.lastname}}</td>
+		  			<td>{{r.videos}}</td>
+		  		</tr>
+		  		{% endfor %}
+		  	</tbody>
+		</table>
+		</div>
+	{% endif %}
+
+	
+	{% if querynumber == 'f' %}
+		<div class="row">
+		<table class="table table-striped">
+			<thead>
+				<tr> 
+					<th>titles</th>
+					<th>price</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for r in result %}
+				<tr> 
+		  			<td>{{r.videoname}}</td>
+		  			<td>{{r.salesprice}}</td>
+		  		</tr>
+		  		{% endfor %}
+		  	</tbody>
+		</table>
+		</div>
+	{% endif %}
+
+
+	{% if querynumber == 'g' %}
+		<div class="row">
+		<table class="table table-striped">
+			<thead>
+				<tr> 
+					<th>first name</th>
+					<th>last name</th>
+					<th>email</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for r in result %}
+				<tr> 
+		  			<td>{{r.firstname}}</td>
+		  			<td>{{r.lastname}}</td>
+		  			<td>{{r.email}}</td>
+		  		</tr>
+		  		{% endfor %}
+		  	</tbody>
+		</table>
+		</div>
+	{% endif %}
+
+
+	{% if querynumber == 'h' %}
+		<div class="row">
+		<table class="table table-striped">
+			<thead>
+				<tr> 
+					<th>title</th>
+					<th>sold</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for r in result %}
+				<tr> 
+		  			<td>{{r.videoname}}</td>
+		  			<td>{{r.num}}</td>
+		  		</tr>
+		  		{% endfor %}
+		  	</tbody>
+		</table>
+		</div>
+	{% endif %}
+
+
+
+	{% if querynumber == 'i' %}
+		<div class="row">
+		<table class="table table-striped">
+			<thead>
+				<tr> 
+					<th>titles</th>
+					<th>price</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for r in result %}
+				<tr> 
+		  			<td>{{r.videoname}}</td>
+		  			<td>{{r.salesprice}}</td>
+		  		</tr>
+		  		{% endfor %}
+		  	</tbody>
+		</table>
+		</div>
+	{% endif %}
+
+
+	{% if querynumber == 'j' %}
+		<div class="row">
+		<table class="table table-striped">
+			<thead>
+				<tr> 
+					<th>first name</th>
+					<th>last name</th>
+					<th>date of birth</th>
+					<th>films starred in</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for r in result %}
+				<tr> 
+		  			<td>{{r.firstname}}</td>
+		  			<td>{{r.lastname}}</td>
+		  			<td>{{r.date_of_birth}}</td>
+		  			<td>{{r.videos}}</td>
+		  		</tr>
+		  		{% endfor %}
+		  	</tbody>
+		</table>
+		</div>
+	{% endif %}
+
+
+	{% if querynumber == 'k' %}
+		<div class="row">
+		<table class="table table-striped">
+			<thead>
+				<tr> 
+					<th>first name</th>
+					<th>last name</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for r in result %}
+				<tr> 
+		  			<td>{{r.firstname}}</td>
+		  			<td>{{r.lastname}}</td>
+		  		</tr>
+		  		{% endfor %}
+		  	</tbody>
+		</table>
+		</div>
+	{% endif %}
+
+
+	{% if querynumber == 'l' %}
+		<div class="row">
+		<table class="table table-striped">
+			<thead>
+				<tr> 
+					<th>first name</th>
+					<th>last name</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for r in result %}
+				<tr> 
+		  			<td>{{r.firstname}}</td>
+		  			<td>{{r.lastname}}</td>
+		  		</tr>
+		  		{% endfor %}
+		  	</tbody>
+		</table>
+		</div>
+	{% endif %}
+
+	
+	{% if querynumber == 'm' %}
+		<div class="row">
+		<table class="table table-striped">
+			<thead>
+				<tr> 
+					<th>title</th>
+					<th>director</th>
+					<th>actor</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for r in result %}
+				<tr>
+					<td>{{r.videoname}}</td> 
+		  			<td>{{r.directorname}}</td>
+		  			<td>{{r.firstname}} {{r.lastname}}</td>
+		  		</tr>
+		  		{% endfor %}
+		  	</tbody>
+		</table>
+		</div>
+	{% endif %}
+
+{% endif %}
+ 
+{% endblock %}
+

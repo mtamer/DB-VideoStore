@@ -1,0 +1,28 @@
+<!-- extends from base.html -->
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="span3 offset3 well">
+
+{% if type == 'actor' %}
+<h1> add actor </h1>
+<form action="" method="post" name="actor">
+	{{form.hidden_tag()}}
+	<p>first name:{{form.firstname(size=30)}}<br></p>
+	<p>last name:{{form.lastname(size=30)}}<br></p>
+	<p>date of birth:{{form.date_of_birth}}<br></p>
+	<p><input class="btn btn-success" type="submit" value="add"></p>
+</form>
+
+{% elif type == 'shippingaddress' %}
+<form action="" method="post" name="shippingaddress">
+	{{form.hidden_tag()}}
+	<p>street address:{{form.address1(size=40)}}<br></p>
+	<p>city: &nbsp; &nbsp; &nbsp; {{form.city(size=30)}}<br></p>
+	<p>postal code:{{form.postalcode(size=8)}}<br></p>
+	<p><input class="btn btn-success" type="submit" value="add"></p>
+{% endif %}
+</div>
+
+{% endblock %}

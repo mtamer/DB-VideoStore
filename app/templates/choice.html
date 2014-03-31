@@ -1,0 +1,100 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="row-fluid">
+
+{% if choice == 'video' %}
+<h1>{{choice}}s:</h1>
+<hr>
+
+<div class="span6 offset2">
+<table class="table table-striped">
+	<thead>
+		<tr> 
+			<th>title</th>
+			<th>genre</th>
+			<th>rating</th>
+			<th>price</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for r in video %}
+  		<tr> 
+  			<td><a href="/{{choice}}/id/{{r.videoid}}">{{r.videoname}}</a></td>
+  			<td>{{r.genre}}</td>
+  			<td>{{r.rating}}</td>
+  			<td>${{r.salesprice}}0</td>
+  			
+  		</tr>
+  		{% endfor %}
+  	</tbody>
+</table>
+</div>
+
+{% elif choice == 'genre' %}
+<h1>{{choice}}s:</h1>
+<hr>
+
+	{% for r in genre %}
+		<div class="span4">
+			<a class=" btn btn-primary btn-link" type="button" href="/{{choice}}/id/{{r}}">{{r}}</a>
+		</div>	
+	{% endfor %}
+
+{% elif choice == 'member' %}
+<h1>{{choice}}s:</h1>
+<hr>
+
+<div class="span4 offset3">
+<table class="table table-striped">
+	<thead>
+		<tr> 
+			<th>name</th>
+			<th>id</th>
+		</tr>
+	</thead>
+	<tbody>
+  		{% for r in member %}
+  		<tr> 
+  			<td><a href="/{{choice}}/id/{{r.membernumber}}">{{r.firstname}} {{r.lastname}}</a></td>
+  			<td>{{r.membernumber}}</td>
+  		</tr>
+  		{% endfor %}
+  		
+  	</tbody>
+</table>
+</div>
+
+{% elif choice == 'actor' %}
+<h1>{{choice}}s:</h1> <h3><a class="btn btn-mini btn-primary btn-success" type="button" href="/edit/actor">add new</a></h3>
+<hr>
+
+<table class="table table-striped">
+	<thead>
+		<tr> 
+			<th>first name</th>
+			<th>last name</th>
+			<th>date of birth</th>
+			<th>imdb</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for r in actor %}
+  		<tr> 
+  			<td>{{r.firstname}}</td>
+  			<td>{{r.lastname}}</td>
+  			<td>{{r.date_of_birth}}</td>
+  			<td><a href="{{r.link}}" target="blank">{{r.link}}</a></td>
+  			<td><a class="btn btn-mini btn-primary btn-danger" type="button" href="/delete/actor/{{r.actorid}}">delete</a></td>
+  		</tr>
+  		{% endfor %}
+  	</tbody>
+</table>
+
+
+{% endif %}
+</div>
+
+{% endblock %}

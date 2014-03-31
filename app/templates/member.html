@@ -1,0 +1,82 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+
+			<h1>Member: {{member.firstname}} {{member.lastname}}</h1>
+
+<hr>
+
+<h3> purchases </h3>
+<div class="container"> 
+<ul class="thumbnails">
+  	{% if purchase %}
+  		{% for p in purchase %}
+  		<li class="span3">
+    		<a href="/video/id/{{p.videoid}}">
+      			<img src="/static/img/cover/{{p.videoid}}.jpg" class="img">
+      		</a>
+    	</li>
+    	{% endfor %}
+
+    {% else %}
+		<li class="span3">
+			<a href="#" class="thumbnail">
+      			<img src="/static/img/cover/00000.jpg" class="img">
+    		</a>
+		</li>
+
+    {% endif %}
+</ul>
+</div>
+
+<hr>
+
+<h3> billing information </h3>
+<table class="table table-striped">
+	<thead>
+		<tr> 
+			<th>card type</th>
+			<th>card number</th>
+			<th>email</th>
+			<th>street</th>
+		</tr>
+	</thead>
+	<tbody>
+  		<tr> 
+  			<td>{{billinginformation.credit_cardtype}}</td>
+  			<td>{{billinginformation.cardnumber}}</td>
+  			<td>{{member.email}}</td>
+  			<td>{{billingaddress.address1}}, {{billingaddress.city}}</td>
+  		</tr>
+  	</tbody>
+</table>
+
+<hr>
+
+<h3> shipping addresses  <a class="btn btn-mini btn-primary btn-success" type="button" href="/edit/shippingaddress/{{member.membernumber}}">add new</a> </h3>
+<table class="table table-striped">
+<thead>
+		<tr> 
+			<th>street</th>
+			<th>city</th>
+			<th>postal code</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for s in shippingaddress %}
+		<tr> 
+  			<td>{{s.address1}}</td>
+  			<td>{{s.city}}</td>
+  			<td>{{s.postalcode}}</td>
+  			<td><a class="btn btn-mini btn-primary btn-danger" type="button" href="/delete/shippingaddress/{{s.saddressid}}+{{member.membernumber}}">delete</a>
+  			
+  		</tr>
+
+  		{% endfor %}
+  	</tbody>
+  
+</table>
+{% endblock %}
+
+

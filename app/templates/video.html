@@ -1,0 +1,48 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+
+<img src="/static/img/cover/{{video.videoid}}.jpg" class="img-polaroid">
+
+<hr>
+<h1>Video: {{video.videoname}} </h1>
+<hr>
+
+<div class="span3">
+	<div class="well">
+		<h4 class="muted">Starring</h4>
+		<ul>
+			{% for r in actors %}
+				<li>{{r.firstname}} {{r.lastname}} </li>
+			{% endfor %}
+		</ul>
+	</div>
+</div>
+
+<div class="span3">
+	<div class="well">
+		<h4 class="text-warning">Award Nominations</h4>
+		<ul>
+			{% for a in awards %}
+				<li>{{a.category}} ({{a.awardyear}})</li>
+			{% endfor %}
+		</ul>          
+	</div>
+</div>
+
+<div class="span3">
+	<div class="well">
+		<h4 class="text-info">Details</h4>
+		<ul>
+			<li>Year: {{video.videoyear}}</li>
+			<li>Genre: {{video.genre}}</li>
+			<li>Rating: {{video.rating}}</li>
+			<li>Duration: {{video.duration}}</li>
+			<li>Price: ${{video.salesprice}}0</li>
+		</ul>          
+	</div>
+</div>
+
+
+{% endblock %}
