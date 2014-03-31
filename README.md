@@ -1,6 +1,16 @@
 DB-VideoStore
 =============
 
-A Video Store Database
+#Usage 
 
-Creating an Online Video Store.
+Online Video Store
+Download all the dependencies in the requirement.txt
+
+1. Install ```python get-pip.py```
+
+2. Run ```pip install -r requirements.txt``` to get all the dependencies
+
+3. Now to run ```run.py/``` 
+
+#Notes
+Database Project. Created an online videostore. Please Read ProjectDescription2013.pdf for more details.
