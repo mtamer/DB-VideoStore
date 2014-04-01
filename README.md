@@ -3,7 +3,8 @@ DB-VideoStore
 
 #Usage 
 
-Online Video Store
+Online Video Store.
+
 Download all the dependencies in the requirement.txt
 
 1. Install ```python get-pip.py```
